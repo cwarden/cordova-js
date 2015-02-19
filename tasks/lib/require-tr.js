@@ -155,9 +155,7 @@ function _updateRequires(code) {
           if(requireTr.hasModule(module) === false) {
             requireTr.addModule({symbol: module, path: scriptPath});
           }
-        }
-        else if(module !== undefined && ( module.indexOf("org.apache.cordova") !== -1 ||
-                                          module.indexOf("./") === 0 || module.indexOf("../") === 0 ) ) {
+        } else if(module !== undefined && module.indexOf("/") !== 0) {
           var modules = requireTr.getModules();
 
           if(module.indexOf("../") === 0){
